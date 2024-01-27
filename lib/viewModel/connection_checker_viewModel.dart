@@ -5,10 +5,10 @@ class ConnectionCheckerController with ChangeNotifier {
   late bool connected;
 
   Future isConnected() async {
-    await InternetConnectionChecker().hasConnection.then((value) {
+    await InternetConnectionChecker().hasConnection.then((value) async {
       connected = value;
-      //print("isConnected : $connected");
       notifyListeners();
+      //print("isConnected : $connected");
     });
   }
 }
